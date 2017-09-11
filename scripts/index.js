@@ -34,12 +34,20 @@ var shuffled = shuffle(deck)
 
 shuffled = shuffled.map(function (card) {
     var suit = SUITS[Math.floor(card / 13)]
-    var face = VALUES[card % 13]
+    var face = card % 13
 
-    return face + '_of_' + suit + '.svg'
+    filename = VALUES[face] + '_of_' + suit
+
+    // TODO: make picture cards optional
+    if (face >= 10) {
+        filename += '2'
+    }
+
+    return filename + '.svg'
 })
 
 vm = {
+    // TODO: make number of card configurable
     cards: shuffled.slice(0, 9)
 }
 
