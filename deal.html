@@ -7,7 +7,10 @@
 
 <body>
     <div>
-        <ul class="cards" data-bind="foreach: cards">
+        <button data-bind="click: deal">Deal card</button><span data-bind="text: cards().length"></span>
+    </div>
+    <div>
+        <ul class="deal" data-bind="foreach: cards">
             <li>
                 <img data-bind="attr: {src: './images/' + $data}" />
             </li>
@@ -19,7 +22,13 @@
 
     <script type="text/javascript">
         vm = {
-            cards: deal9()
+            cards: ko.observableArray()
+        }
+
+        vm.deal = function () {
+            if (shuffled.length) {
+                vm.cards.splice(0, 0, shuffled.pop())
+            }
         }
 
         ko.applyBindings(vm)

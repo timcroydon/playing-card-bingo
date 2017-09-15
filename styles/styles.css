@@ -1,4 +1,12 @@
+ul {
+    list-style: none
+}
+
 ul.cards {
     column-count: 3;
-    list-style: none
+}
+
+ul.deal {
+    display: flex;
+    flex-wrap: wrap;
 }

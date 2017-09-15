@@ -46,9 +46,7 @@ shuffled = shuffled.map(function (card) {
     return filename + '.svg'
 })
 
-vm = {
-    // TODO: make number of card configurable
-    cards: shuffled.slice(0, 9)
+// bleurgh. Horrible hacky implementation
+function deal9(count) {
+    return shuffled.slice(0, 9)
 }
-
-ko.applyBindings(vm)
